@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Usuários</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background-color: #202020;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            max-width: 1200px;
+            min-width: none;
+            max-height: none;
+            min-height: 100vh;
+            margin: auto;
+            padding: 40px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        hr.title {
+            width: 100%;
+            border: 1px solid white;
+            margin-bottom: 40px;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form div.nome {
+            margin-bottom: 20px;
+        }
+
+        form .nome input {
+            background-color: transparent;
+            height: 50px;
+            width: 400px;
+            font-size: 16px;
+            padding: 0px 10px;
+            border: 3px solid white;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        form .desc {
+            margin-bottom: 20px;
+        }
+
+        form .desc textarea {
+            background-color: transparent;
+            max-height: 120px;
+            min-width: 400px;
+            max-width: 400px;
+            font-size: 16px;
+            padding: 10px;
+            border: 3px solid white;
+            border-radius: 10px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form .quantidadePreco {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        form .quantidadePreco div {
+            width: 150px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+        }
+
+        form .quantidadePreco div input {
+            background-color: transparent;
+            width: 50px;
+            height: 30px;
+            padding: 5px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin-left: 5px;
+            font-weight: 600;
+        }
+
+        form .quantidadePreco div.preco {
+            justify-content: right;
+        }
+
+        form .quantidadePreco div.preco input {
+            width: 100px;
+            border: 1px solid #8b8b8b;
+            border-radius: 7px;
+            font-weight: 400;
+        }
+
+        form .quantidadePreco div.quantidade input::selection {
+            border: none;
+        }
+
+        form .quantidadePreco div.quantidadePreco input::placeholder {
+            color: white;
+            font-weight: 600;
+        }
+
+        form hr {
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        form .id input {
+            background-color: transparent;
+            height: 50px;
+            width: 400px;
+            font-size: 16px;
+            padding: 0px 10px;
+            border: 3px solid white;
+            border-radius: 10px;
+            color: white;
+        }
+
+        form input.button {
+            background-color: transparent;
+            margin: auto;
+            height: 40px;
+            width: 200px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 0px 10px;
+            border: 3px solid #8b8b8b;
+            border-radius: 20px;
+            color: #8b8b8b;
+            margin-top: 40px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        div.voltar {
+            position: absolute;
+            bottom: 30px;   
+        }
+
+        div.voltar a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Editar Pedidos</h1>
+        <hr  class="title">
+        <form action="/editRequest/<%= request.request_id %>" method="POST">
+            <div class="nome">
+                <input type="text" id="name" name="name" placeholder="Nome de Produto" value="<%= request.request_name %>" required>
+            </div>
+            <div class="desc">
+                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Inserir nova descrição do Produto" ></textarea>
+            </div>
+            <div class="quantidadePreco">
+                <div class="quantidade">
+                    Quantidade: <input value="<%= request.request_quantities %>" type="number" id="quantidade" name="quantidade" placeholder="0" required >
+                </div>
+                <div class="preco">
+                    R$: <input type="number" id="preco" name="preco" placeholder="Preço" value="<%= request.request_price %>" required>
+                </div>
+            </div>
+            <hr class="form ">
+            <div class="id">
+                <input type="number" id="user_id" name="user_id" placeholder="ID do Usuário" required value="<%= request.user_id %>">
+            </div>
+            <input class="button" type="submit" value="Editar Produto">
+        </form> 
+        <div class="voltar">
+            <a href="/">Voltar para a página inicial</a>
+        </div>
+    </main>
+</body>
+</html>

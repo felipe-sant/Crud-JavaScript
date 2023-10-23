@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Usuários</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background-color: #202020;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            max-width: 1200px;
+            min-width: none;
+            max-height: none;
+            min-height: 100vh;
+            margin: auto;
+            padding: 40px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            width: 100%;
+            border: 1px solid white;
+            margin-bottom: 40px;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form .nome input {
+            background-color: transparent;
+            height: 50px;
+            width: 400px;
+            font-size: 16px;
+            padding: 0px 10px;
+            border: 3px solid white;
+            border-radius: 10px;
+            color: white;
+        }
+
+        form input.button {
+            background-color: transparent;
+            margin: auto;
+            height: 40px;
+            width: 200px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 0px 10px;
+            border: 3px solid #8b8b8b;
+            border-radius: 20px;
+            color: #8b8b8b;
+            margin-top: 40px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        div.voltar {
+            position: absolute;
+            bottom: 30px;   
+        }
+
+        div.voltar a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Inserir Usuários</h1>
+        <hr>
+        <form action="/insertUser" method="POST">
+            <div class="nome">
+                <input type="text" id="name" name="name" placeholder="Nome de Usuário" required>
+            </div>
+            <input class="button" type="submit" value="Criar Usuário">
+        </form>
+        <div class="voltar">
+            <a href="/">Voltar para a página inicial</a>
+        </div>
+    </main>
+</body>
+</html>

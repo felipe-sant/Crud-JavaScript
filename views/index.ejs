@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background-color: #202020;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            max-width: 1200px;
+            min-width: none;
+            margin: auto;
+            padding: 40px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 a.insert {
+            transition: all 0.5s;
+            border: 2px solid #8b8b8b;
+            border-radius: 10px;
+            margin-left: 10px;
+            padding: 5px;
+            font-weight: 600;
+            font-size: 12px;
+            color: #8b8b8b;
+            text-decoration: none;
+        }
+
+        h2 a.insert:hover {
+            background-color: #8b8b8b;
+            color: white;
+        }
+
+        div.user {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 10px;
+            height: 30px;
+            width: 560px;
+            border: 1px solid white;
+        }
+
+        div.user div.id {
+            height: 100%;
+            width: 40px;
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid white;
+            font-weight: 600;
+            
+        }
+
+        div.user div.name {
+            height: 100%;
+            width: 400px;
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid white;
+        }
+
+        div.user div.edit {
+            height: 100%;
+            width: 50px;
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid white;
+        }
+
+        div.user div.delete {
+            height: 100%;
+            width: 50px;
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        div.user a {
+            color: white;
+            font-weight: 600;
+        }
+
+        div.user div.delete a {
+            color: rgb(194, 0, 0);
+        }
+
+        div.produtos {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        div.purchase_request {
+            width: 300px;
+            margin: auto;
+            margin-bottom: 60px;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        div.purchase_request h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        div.purchase_request p {
+            font-size: 14px;
+        }
+
+        div.purchase_request p.descricao {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        div.purchase_request p.comprador {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        div.purchase_request div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        div.purchase_request hr {
+            margin: 15px 0px 10px 0px;
+        }
+
+        div.purchase_request div.editDelete {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        div.purchase_request div.editDelete a.edit {
+            transition: all 0.5s;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        div.purchase_request div.editDelete a.edit:hover {
+            background-color: white;
+            color: black;
+        }
+
+        div.purchase_request div.editDelete a.delete {
+            padding: 7px 0px;
+            color: red;
+        }
+
+        h2.pedidos {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Sistema <strong>Crud</strong> com duas tabelas</h1>
+        <hr>
+        <h2>Usuários <a href="/insertUser" class="insert">Insert</a></h2>
+        <% usuarios.forEach(function(user) { %>
+            <div class="user">
+                <div class="id"><%= user.user_id %></div>
+                <div class="name"><%= user.user_name %></div>
+                <div class="edit">
+                    <a href="/editUser/<%= user.user_id %>">Edit</a>
+                </div>
+                <div class="delete">
+                    <a href="/deleteUser/<%= user.user_id %>"">Delete</a>
+                </div>
+            </div>
+        <% }); %>
+        <h2>Pedidos <a href="/insertRequest" class="insert">Insert</a></h2>
+        <div class="produtos">
+            <% pedidos.forEach(function(purchase_request) { %>
+                <div class="purchase_request">
+                    <h3>
+                        <span><%= purchase_request.request_id %></span> - <%= purchase_request.request_name %>
+                    </h3>
+                    <p class="descricao"><%= purchase_request.request_desc %></p>
+                    <div>
+                        <div><%= purchase_request.request_quantities %>x</div>
+                        <div>R$ <%= purchase_request.request_price %></div>
+                    </div>
+                    <hr>
+                    <p class="comprador"><em>Comprador: <strong><%= purchase_request.user_name %></strong></em></p>
+                    <div class="editDelete">
+                        <a href="editRequest/<%= purchase_request.request_id %>" class="edit">Edit</a>
+                        <a href="deleteRequest/<%= purchase_request.request_id %>" class="delete">Delete</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+</body>
+</html>
