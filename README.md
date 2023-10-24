@@ -46,11 +46,15 @@ create table purchase_request (
 git clone https://github.com/felipe-sant/calculadora-utilizando-classes.git
 ```
 
-3. Para instalar as dependencias e rodar o projeto digite:
+3. Vá no arquivo [database/connection.js](database/connection.js).
+
+4. Troque as informações da linha 9 e 10, colocando o usuário e senha do seu mysql.
+
+5. Para instalar as dependencias e rodar o projeto, vá para a raiz do projeto e digite:
 
 ```
 npm install
 node app.js
 ```
 
-4. Para fechar o ambiente e sair aperte Ctrl + C:
+5. Para fechar o ambiente e sair aperte Ctrl + C:
