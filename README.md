@@ -11,7 +11,31 @@ Projeto com objetivo de fazer um CRUD (Create, Rename, Update, Delete) em JavaSc
 </div> <br>
 
 > É necessário ter o banco de dados já instalado na sua máquina.
-> 
+
+## Comandos para criar o Banco de dados:
+
+```
+create database crud;
+use crud;
+
+create table `user`(
+	user_id int auto_increment not null,
+	user_name varchar(200),
+	primary key (user_id)
+);
+
+create table purchase_request (
+	request_id int auto_increment not null,
+	user_id int,
+	request_name varchar(100) not null,
+	request_desc varchar(100),
+	request_price decimal(10,2) not null,
+	request_quantities int not null,
+	primary key (request_id),
+	foreign key (user_id) references `user`(user_id)
+);
+```
+
 ## ⚙️ Como rodar:
 
 1. É necessario que você tenha o Node instalado na sua máquina. [Baixe aqui!](https://nodejs.org/pt-br/download/package-manager)
