@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'fatec',
     password: 'P@ssword1234',
-    database: 'list03'
+    database: 'crud'
 });
 
 // conectar ao banco de dados
