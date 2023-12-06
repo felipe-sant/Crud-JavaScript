@@ -2,7 +2,7 @@
 
 # Sistema CRUD com JavaScript
 
-Projeto com objetivo de fazer um CRUD (Create, Rename, Update, Delete) em JavaScript.
+Projeto com objetivo de fazer um CRUD (Create, Read, Update, Delete) em JavaScript.
 
 <img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/>
